@@ -1,8 +1,8 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "defaultTitle",
-    "description" : "defaultDescription",
+    "title" : "gRPC Store",
+    "description" : "gRPC Store",
     "version" : "0.1"
   },
   "servers" : [ {
@@ -11,10 +11,11 @@
   "paths" : {
     "/items" : {
       "get" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "ListItems",
+        "operationId": "ListItems",
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "ListItems",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -50,12 +51,13 @@
         "url" : "https://edge.hayner.io"
       } ]
     },
-    "/items/item1" : {
+    "/items/{{id}}" : {
       "get" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "GetItem",
+        "operationId": "GetItem",
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "GetItem",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -85,10 +87,11 @@
         } ]
       },
       "delete" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "DeleteItem",
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "DeleteItem",
+            "operationId": "DeleteItem",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -111,22 +114,6 @@
                 }
               }
             }
-          }
-        },
-        "servers" : [ {
-          "url" : "https://edge.hayner.io"
-        } ]
-      },
-      "servers" : [ {
-        "url" : "https://edge.hayner.io"
-      } ]
-    },
-    "/items -d '{\"item\":{\"name\":\"item1\"}}'" : {
-      "get" : {
-        "description" : "Auto generated using Swagger Inspector",
-        "responses" : {
-          "404" : {
-            "description" : "Auto generated using Swagger Inspector"
           }
         },
         "servers" : [ {
