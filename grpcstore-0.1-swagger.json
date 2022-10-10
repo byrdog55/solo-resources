@@ -51,7 +51,7 @@
         "url" : "https://edge.hayner.io"
       } ]
     },
-    "/items/{{id}}" : {
+    "/items/item1" : {
       "get" : {
         "description" : "GetItem",
         "operationId": "GetItem",
@@ -88,10 +88,10 @@
       },
       "delete" : {
         "description" : "DeleteItem",
+        "operationId": "DeleteItem",
         "responses" : {
           "200" : {
             "description" : "DeleteItem",
-            "operationId": "DeleteItem",
             "content" : {
               "application/json" : {
                 "schema" : {
