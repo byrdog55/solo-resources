@@ -1,0 +1,141 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "defaultTitle",
+    "description" : "defaultDescription",
+    "version" : "0.1"
+  },
+  "servers" : [ {
+    "url" : "https://edge.hayner.io"
+  } ],
+  "paths" : {
+    "/items" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "items" : {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "name" : {
+                            "type" : "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples" : {
+                  "0" : {
+                    "value" : "{\"items\":[{\"name\":\"item1\"}]}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "https://edge.hayner.io"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "https://edge.hayner.io"
+      } ]
+    },
+    "/items/item1" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "item" : {
+                      "type" : "object",
+                      "properties" : {
+                        "name" : {
+                          "type" : "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples" : {
+                  "0" : {
+                    "value" : "{\"item\":{\"name\":\"item1\"}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "https://edge.hayner.io"
+        } ]
+      },
+      "delete" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "item" : {
+                      "type" : "object",
+                      "properties" : {
+                        "name" : {
+                          "type" : "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples" : {
+                  "0" : {
+                    "value" : "{\"item\":{\"name\":\"item1\"}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "https://edge.hayner.io"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "https://edge.hayner.io"
+      } ]
+    },
+    "/items -d '{\"item\":{\"name\":\"item1\"}}'" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "404" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "https://edge.hayner.io"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "https://edge.hayner.io"
+      } ]
+    }
+  }
+}
