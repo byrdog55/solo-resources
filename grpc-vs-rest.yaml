@@ -1,0 +1,82 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: grpcstore-rest
+  namespace: gloo-system
+spec:
+  sslConfig:
+    secretRef:
+      name: grpcstore-tls
+      namespace: gloo-system
+  virtualHost:
+    domains:
+    - grpcstore.hayner.io
+    routes:
+      - matchers:
+          - prefix: /
+        routeAction:
+          single:
+            upstream:
+              name: default-grpcstore-demo-80
+              namespace: gloo-system    
+    routes:
+    - matchers:
+       - methods:
+         - GET
+         prefix: /items/
+      routeAction:
+       single:
+         destinationSpec:
+           grpc:
+             function: GetItem
+             package: solo.examples.v1
+             parameters:
+               path: /items/{name}
+             service: StoreService
+         upstream:
+           name: default-grpcstore-demo-80
+           namespace: gloo-system
+    - matchers:
+       - methods:
+         - DELETE
+         prefix: /items/
+      routeAction:
+       single:
+         destinationSpec:
+           grpc:
+             function: DeleteItem
+             package: solo.examples.v1
+             parameters:
+               path: /items/{name}
+             service: StoreService
+         upstream:
+           name: default-grpcstore-demo-80
+           namespace: gloo-system
+    - matchers:
+       - methods:
+         - GET
+         exact: /items
+      routeAction:
+       single:
+         destinationSpec:
+           grpc:
+             function: ListItems
+             package: solo.examples.v1
+             service: StoreService
+         upstream:
+           name: default-grpcstore-demo-80
+           namespace: gloo-system
+    - matchers:
+       - methods:
+         - POST
+         exact: /items
+      routeAction:
+       single:
+         destinationSpec:
+           grpc:
+             function: CreateItem
+             package: solo.examples.v1
+             service: StoreService
+         upstream:
+           name: default-grpcstore-demo-80
+           namespace: gloo-system
